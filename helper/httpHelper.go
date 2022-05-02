@@ -53,7 +53,7 @@ func readJSON(w http.ResponseWriter, r *http.Request, dest interface{}) error {
 	return nil
 }
 
-func writeJSON(w http.ResponseWriter, data envelope, statusCode int, headers http.Header) error {
+func WriteJSON(w http.ResponseWriter, data envelope, statusCode int, headers http.Header) error {
 	res, err := json.MarshalIndent(data, "", "\t")
 	if err != nil {
 		return err

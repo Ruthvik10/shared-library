@@ -37,3 +37,7 @@ func NotFoundErrorResponse(w http.ResponseWriter, r *http.Request, logger *log.L
 	msg := "could not find the requested resource"
 	ErrorResponse(w, r, logger, http.StatusNotFound, msg)
 }
+
+func FailedValidationResponse(w http.ResponseWriter, r *http.Request, logger *log.Logger, errors map[string]string) {
+	ErrorResponse(w, r, logger, http.StatusUnprocessableEntity, errors)
+}

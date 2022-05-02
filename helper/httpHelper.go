@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-)
 
-type envelope map[string]interface{}
+	"github.com/Ruthvik10/shared-library/data"
+)
 
 func ReadJSON(w http.ResponseWriter, r *http.Request, dest interface{}) error {
 
@@ -53,7 +53,7 @@ func ReadJSON(w http.ResponseWriter, r *http.Request, dest interface{}) error {
 	return nil
 }
 
-func WriteJSON(w http.ResponseWriter, data envelope, statusCode int, headers http.Header) error {
+func WriteJSON(w http.ResponseWriter, data data.Envelope, statusCode int, headers http.Header) error {
 	res, err := json.MarshalIndent(data, "", "\t")
 	if err != nil {
 		return err

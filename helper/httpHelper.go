@@ -10,7 +10,7 @@ import (
 
 type envelope map[string]interface{}
 
-func readJSON(w http.ResponseWriter, r *http.Request, dest interface{}) error {
+func ReadJSON(w http.ResponseWriter, r *http.Request, dest interface{}) error {
 
 	maxBytes := 1048576
 	r.Body = http.MaxBytesReader(w, r.Body, int64(maxBytes))
